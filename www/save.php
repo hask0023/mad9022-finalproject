@@ -20,12 +20,12 @@ if code is something else then there is an error and no id for the image
 require_once("db.inc.php");
 header("Content-Type: application/json");
 
-if( isset( $_GET['dev'] ) && isset($_GET['img']) && isset($_GET['thumb']) ){
+if( isset( $_SET['dev'] ) && isset($_SET['img']) && isset($_SET['thumb']) ){
     //we have the device id
     //save the thumbnail and image in the database
-    $dev_id = trim($_GET['dev']);
-    $full_img = trim($_GET['img']);
-    $thumb = trim($_GET['thumb']);
+    $dev_id = trim($_SET['dev']);
+    $full_img = trim($_SET['img']);
+    $thumb = trim($_SET['thumb']);
     
     $sql = "INSERT INTO w15_final(device_id, thumbnail, full_img) VALUES(?, ?, ?)";
     $rs = $pdo->prepare($sql);
