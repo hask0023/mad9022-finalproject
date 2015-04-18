@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="hammer.js"></script>
-    <link rel="stylesheet" href="main.css">
+<!--    <script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="js/hammer.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -34,10 +35,12 @@
     
     <nav>
 <ul class="tabs">
-    <li class="tab"><a href="#camScreen" data-role="pagelink" class="activetab">Camera Screen</a></li>
-    <li class="tab"><a href="#gridScreen" data-role="pagelink" class="">Grid Screen</a></li>
+    <li class="tab" id="navCamId"><a href="#camScreen" data-role="pagelink" id="camPageLink" class="activetab">Camera Screen</a></li>
+    <li class="tab" id="navGridId"><a href="#gridScreen" data-role="pagelink" id="gridPageLink" class="">Grid Screen</a></li>
 </ul>
     </nav>
+    
+
     
 </body>
 </html>
