@@ -61,24 +61,40 @@ h1, h2 {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #e1e2ed;
 }
-/*
-.delButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
-	background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
-	background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
-	background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
-	background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
-	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
-	background-color:#bab1ba;
-}
-.delButton:active {
-	position:relative;
-	top:1px;
-}
-*/
 
-ul {
+/*this is their part, might change*/
+#canvasArea{
+    padding-left: 5%;
+    width: 60%;
+    float: left;
+    
+}
+input {
+    width: 100%;
+    
+}
+
+.saveButton {
+   
+    width: 20%;
+    float: right;
+}
+
+.radio{
+    vertical-align: middle;
+}
+
+.forms {
+   
+  margin-left: 80%;
+   
+}
+
+.formBox {
+  
+}
+
+#gridList {
     margin: 0 auto;
 }
 
@@ -92,6 +108,11 @@ ul {
 .bigImage{
     display: block;
     margin: 0 auto;
+}
+
+.formBox {
+    float: left;
+    display: block;
 }
 /********************************
         TABS
@@ -147,11 +168,10 @@ ul.tabs{
 ********************************/
 
 [data-role="page"]{
-/*  position:absolute; */
-/*position: relative;*/
+
 margin: 0 auto;
 /*  top: 3rem; */
-/*    bottom: 3rem;*/
+/*  bottom: 3rem;*/
   color: #bbb;	
   margin-top: -1px;
   left: 100%;
@@ -169,7 +189,7 @@ margin: 0 auto;
   right: 0;
   z-index: 5;
   background-color:#333;
-/*  border-bottom:1px solid #665;*/
+
 }
 [data-role=page].show{
   display:block;
@@ -180,7 +200,8 @@ margin: 0 auto;
 
 
 [data-role="content"]{
-  padding-top: 1.0rem;	
+  padding-top: 1.0rem;
+    width: 100%;
 }
 [data-role="content"] p:last-child{
 	padding-bottom:4rem;

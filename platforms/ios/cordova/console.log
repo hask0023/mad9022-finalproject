@@ -1045,3 +1045,176 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 
 2015-04-19 04:56:14.129 mad9022-finalproject[11830:328571] Resetting plugins due to page load.
 2015-04-19 04:56:14.167 mad9022-finalproject[11830:328571] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/EF9F992F-10A4-43B1-91D9-FC9F2BD134CA/mad9022-finalproject.app/www/index.html
+2015-04-19 05:05:33.925 mad9022-finalproject[12034:332769] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/665FFB08-5ED5-4AD4-A4CE-CE9F9E09C9DD/Library/Cookies/Cookies.binarycookies
+2015-04-19 05:05:34.069 mad9022-finalproject[12034:332769] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 05:05:34.069 mad9022-finalproject[12034:332769] Multi-tasking -> Device: YES, App: YES
+2015-04-19 05:05:34.071 mad9022-finalproject[12034:332769] Unlimited access to network resources
+2015-04-19 05:05:34.072 mad9022-finalproject[12034:332769] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 05:05:34.449 mad9022-finalproject[12034:332769] Resetting plugins due to page load.
+2015-04-19 05:05:34.487 mad9022-finalproject[12034:332769] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/D68E0316-AEC0-448B-9D1E-7F97BE10E8C8/mad9022-finalproject.app/www/index.html
+2015-04-19 05:06:03.656 mad9022-finalproject[12152:333461] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/CA33BA04-40CC-4DD8-86C7-F2DB16116594/Library/Cookies/Cookies.binarycookies
+2015-04-19 05:06:03.797 mad9022-finalproject[12152:333461] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 05:06:03.797 mad9022-finalproject[12152:333461] Multi-tasking -> Device: YES, App: YES
+2015-04-19 05:06:03.798 mad9022-finalproject[12152:333461] Unlimited access to network resources
+2015-04-19 05:06:03.800 mad9022-finalproject[12152:333461] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 05:06:04.168 mad9022-finalproject[12152:333461] Resetting plugins due to page load.
+2015-04-19 05:06:04.206 mad9022-finalproject[12152:333461] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/17CEA9A3-FFA8-4F3C-83E8-BE13E3B26D58/mad9022-finalproject.app/www/index.html
+2015-04-19 05:24:07.839 mad9022-finalproject[12364:339494] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/D1F75EC2-2FF3-445E-A229-516E3620A8E6/Library/Cookies/Cookies.binarycookies
+2015-04-19 05:24:07.950 mad9022-finalproject[12364:339494] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 05:24:07.950 mad9022-finalproject[12364:339494] Multi-tasking -> Device: YES, App: YES
+2015-04-19 05:24:07.951 mad9022-finalproject[12364:339494] Unlimited access to network resources
+2015-04-19 05:24:07.953 mad9022-finalproject[12364:339494] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 05:24:08.419 mad9022-finalproject[12364:339494] Resetting plugins due to page load.
+2015-04-19 05:24:08.455 mad9022-finalproject[12364:339494] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/B07D42A5-49C3-4603-99F1-EF8AD1E20D94/mad9022-finalproject.app/www/index.html
+2015-04-19 05:26:05.114 mad9022-finalproject[12495:340738] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/AFC649DB-9D77-45C5-9F6D-F91FF0483A23/Library/Cookies/Cookies.binarycookies
+2015-04-19 05:26:05.254 mad9022-finalproject[12495:340738] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 05:26:05.255 mad9022-finalproject[12495:340738] Multi-tasking -> Device: YES, App: YES
+2015-04-19 05:26:05.257 mad9022-finalproject[12495:340738] Unlimited access to network resources
+2015-04-19 05:26:05.259 mad9022-finalproject[12495:340738] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 05:26:05.678 mad9022-finalproject[12495:340738] Resetting plugins due to page load.
+2015-04-19 05:26:05.713 mad9022-finalproject[12495:340738] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/D8112BE1-27F4-4A0E-944D-2CF5EB9FE3D0/mad9022-finalproject.app/www/index.html
+2015-04-19 05:26:10.321 mad9022-finalproject[12495:340738] CDVWebViewDelegate: Navigation started when state=1
+2015-04-19 05:26:10.321 mad9022-finalproject[12495:340738] Failed to load webpage with error: CDVWebViewDelegate: Navigation started when state=1
+2015-04-19 05:26:44.632 mad9022-finalproject[12615:341361] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/9629FAF5-7183-4EE2-B59C-F8484B0E0593/Library/Cookies/Cookies.binarycookies
+2015-04-19 05:26:44.701 mad9022-finalproject[12615:341361] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 05:26:44.701 mad9022-finalproject[12615:341361] Multi-tasking -> Device: YES, App: YES
+2015-04-19 05:26:44.703 mad9022-finalproject[12615:341361] Unlimited access to network resources
+2015-04-19 05:26:44.704 mad9022-finalproject[12615:341361] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 05:26:45.216 mad9022-finalproject[12615:341361] Resetting plugins due to page load.
+2015-04-19 05:26:45.254 mad9022-finalproject[12615:341361] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/144D375C-F9A4-4626-92AA-B805E823A746/mad9022-finalproject.app/www/index.html
+2015-04-19 15:05:43.750 mad9022-finalproject[13205:370198] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/654F1C1A-9F67-437C-AC87-927AFCEB7B38/Library/Cookies/Cookies.binarycookies
+2015-04-19 15:05:43.901 mad9022-finalproject[13205:370198] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 15:05:43.901 mad9022-finalproject[13205:370198] Multi-tasking -> Device: YES, App: YES
+2015-04-19 15:05:43.913 mad9022-finalproject[13205:370198] Unlimited access to network resources
+2015-04-19 15:05:43.920 mad9022-finalproject[13205:370198] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 15:05:44.196 mad9022-finalproject[13205:370198] Resetting plugins due to page load.
+2015-04-19 15:05:44.263 mad9022-finalproject[13205:370198] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/C07F2861-00F6-4689-BCD9-CF4822CCB451/mad9022-finalproject.app/www/index.html
+2015-04-19 15:06:26.224 mad9022-finalproject[13342:370939] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/686D27AB-FC19-47C5-B9E9-D826F2FF65E6/Library/Cookies/Cookies.binarycookies
+2015-04-19 15:06:26.355 mad9022-finalproject[13342:370939] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 15:06:26.355 mad9022-finalproject[13342:370939] Multi-tasking -> Device: YES, App: YES
+2015-04-19 15:06:26.357 mad9022-finalproject[13342:370939] Unlimited access to network resources
+2015-04-19 15:06:26.358 mad9022-finalproject[13342:370939] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 15:06:26.784 mad9022-finalproject[13342:370939] Resetting plugins due to page load.
+2015-04-19 15:06:26.824 mad9022-finalproject[13342:370939] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/E9A0C6F2-6828-4BF9-BD8A-1D76846BCECC/mad9022-finalproject.app/www/index.html
+2015-04-19 15:06:58.702 mad9022-finalproject[13475:371662] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/D67EB7FD-35BC-4BAD-9EDD-1914AA95EBC7/Library/Cookies/Cookies.binarycookies
+2015-04-19 15:06:58.765 mad9022-finalproject[13475:371662] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 15:06:58.766 mad9022-finalproject[13475:371662] Multi-tasking -> Device: YES, App: YES
+2015-04-19 15:06:58.767 mad9022-finalproject[13475:371662] Unlimited access to network resources
+2015-04-19 15:06:58.768 mad9022-finalproject[13475:371662] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 15:06:59.288 mad9022-finalproject[13475:371662] Resetting plugins due to page load.
+2015-04-19 15:06:59.325 mad9022-finalproject[13475:371662] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/1D674778-1F62-43FF-ADD5-1D349AF49773/mad9022-finalproject.app/www/index.html
+2015-04-19 15:07:28.087 mad9022-finalproject[13606:372237] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/3552D979-EB42-4692-A317-8C135E38194B/Library/Cookies/Cookies.binarycookies
+2015-04-19 15:07:28.227 mad9022-finalproject[13606:372237] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 15:07:28.228 mad9022-finalproject[13606:372237] Multi-tasking -> Device: YES, App: YES
+2015-04-19 15:07:28.230 mad9022-finalproject[13606:372237] Unlimited access to network resources
+2015-04-19 15:07:28.232 mad9022-finalproject[13606:372237] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 15:07:28.606 mad9022-finalproject[13606:372237] Resetting plugins due to page load.
+2015-04-19 15:07:28.642 mad9022-finalproject[13606:372237] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/F64A5CA2-8C36-468E-B13B-317101C85FD5/mad9022-finalproject.app/www/index.html
+2015-04-19 15:09:01.915 mad9022-finalproject[13747:373297] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/080E1586-63EC-4A94-B9AD-FAB6A8B6C068/Library/Cookies/Cookies.binarycookies
+2015-04-19 15:09:02.025 mad9022-finalproject[13747:373297] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 15:09:02.025 mad9022-finalproject[13747:373297] Multi-tasking -> Device: YES, App: YES
+2015-04-19 15:09:02.027 mad9022-finalproject[13747:373297] Unlimited access to network resources
+2015-04-19 15:09:02.028 mad9022-finalproject[13747:373297] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 15:09:02.495 mad9022-finalproject[13747:373297] Resetting plugins due to page load.
+2015-04-19 15:09:02.533 mad9022-finalproject[13747:373297] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/0224D6D8-6F9D-4DEA-A70E-4CB6E3CDD511/mad9022-finalproject.app/www/index.html
+2015-04-19 15:17:31.444 mad9022-finalproject[13947:377030] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/2FADCE24-2D14-4663-AF7C-6B77E7C99D98/Library/Cookies/Cookies.binarycookies
+2015-04-19 15:17:31.552 mad9022-finalproject[13947:377030] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 15:17:31.552 mad9022-finalproject[13947:377030] Multi-tasking -> Device: YES, App: YES
+2015-04-19 15:17:31.554 mad9022-finalproject[13947:377030] Unlimited access to network resources
+2015-04-19 15:17:31.555 mad9022-finalproject[13947:377030] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 15:17:32.018 mad9022-finalproject[13947:377030] Resetting plugins due to page load.
+2015-04-19 15:17:32.056 mad9022-finalproject[13947:377030] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/9F6BC34E-C5AA-47EF-B6D1-0A7688385902/mad9022-finalproject.app/www/index.html
+2015-04-19 15:17:34.425 mad9022-finalproject[13947:377032] Camera.getPicture: source type 1 not available.
+2015-04-19 15:26:30.339 mad9022-finalproject[14198:382377] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Data/Application/E31D24A8-F9E0-412A-9DF4-ADDE4D101D03/Library/Cookies/Cookies.binarycookies
+2015-04-19 15:26:30.510 mad9022-finalproject[14198:382377] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-19 15:26:30.510 mad9022-finalproject[14198:382377] Multi-tasking -> Device: YES, App: YES
+2015-04-19 15:26:30.511 mad9022-finalproject[14198:382377] Unlimited access to network resources
+2015-04-19 15:26:30.513 mad9022-finalproject[14198:382377] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-19 15:26:30.785 mad9022-finalproject[14198:382377] Resetting plugins due to page load.
+2015-04-19 15:26:30.829 mad9022-finalproject[14198:382377] Finished load of: file:///Users/stevehaskins/Library/Developer/CoreSimulator/Devices/348E37B3-D163-4F8D-A165-0A64B103F0B7/data/Containers/Bundle/Application/A6EB5EE5-D155-4357-81F5-D7376935002B/mad9022-finalproject.app/www/index.html
+2015-04-19 15:26:47.005 mad9022-finalproject[14198:382377] THREAD WARNING: ['Notification'] took '15.622070' ms. Plugin should use a background thread.
+2015-04-19 15:27:09.215 mad9022-finalproject[14198:382377] THREAD WARNING: ['Notification'] took '10.093018' ms. Plugin should use a background thread.

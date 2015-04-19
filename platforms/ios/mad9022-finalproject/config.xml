@@ -20,6 +20,10 @@
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <preference name="CameraUsesGeolocation" value="false" />
     <name>mad9022-finalproject</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

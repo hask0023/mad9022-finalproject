@@ -1,4 +1,4 @@
-// Steve Haskins - javascript part
+// Author: Steve Haskins
 
 var app= {
 	loadRequirements:0,
@@ -21,7 +21,7 @@ var app= {
 	},
 	start: function(){
 	     //alert ("In start function");  
-            
+            app.openGridPage();
     // listeners for the nav menu    
         var navBarCam = document.getElementById('navCamId');
         var addNavBarCamHammer = new Hammer(navBarCam);
@@ -31,16 +31,14 @@ var app= {
         var addNavBarGridHammer = new Hammer(navBarGrid);
         addNavBarGridHammer.on("tap", app.openGridPage);
         
-   //  listener for the UL list on the grid screen
+   //  listener for the UL on the grid screen
         
         var gridList = document.getElementById('gridList');
         var addGridListHammer = new Hammer(gridList);
         addGridListHammer.on("tap", app.openModal);
         
-    // listener for the delete buttons on the grid
-//        var deleteImageButton = document.getElementById('deleteImage');
-//        var deleteImageButtonHammer = new Hammer(deleteImageButton);
-//        deleteImageButtonHammer.on("tap", app.confirmDelete);
+
+    // listener on overlay to close the modal screen
         
        var overlay = document.querySelector("[data-role=overlay]");
         var overlayHammer = new Hammer(overlay);
@@ -48,7 +46,55 @@ var app= {
 	},
     
     openCamPage: function(ev){
-       // ev.preventDefault();
+        
+        var opts = {
+          quality: 75,
+          destinationType: Camera.DestinationType.FILE_URI,
+          sourceType: Camera.PictureSourceType.CAMERA,
+         // allowEdit: true,
+          allowEdit: false,
+          encodingType: Camera.EncodingType.JPEG,
+          mediaType: Camera.MediaType.PICTURE,
+          targetWidth: 720,
+          targetHeight: 480,
+          cameraDirection: Camera.Direction.BACK,
+          saveToPhotoAlbum: false,
+            correctOrientation: true
+              
+        };
+      
+        navigator.camera.getPicture(onSuccess, onFail, opts);
+
+function onSuccess(imageURI) {
+    var imageURI = imageURI;
+
+   // var canvas = document.createElement("canvas");
+//    var outputDiv = document.createElement("div");
+ //   outputDiv.setAttribute("id", "output");
+//    canvas.setAttribute("width", 400);
+//    canvas.setAttribute("height", 400);
+
+    var canvas = document.getElementById("canvasID");
+    var context = canvas.getContext('2d');
+
+    
+//    document.body.appendChild(canvas);
+//    document.body.appendChild(outputDiv);
+    
+    var img = document.createElement("img");
+   img.onload = function() {
+    context.drawImage(img, 0, 0);
+  };
+  img.src = imageURI;
+    
+    
+    
+    
+}
+
+function onFail(message) {
+   // alert('Failed because: ' + message);
+}
        
         var activeTab = document.getElementById('camPageLink');
         var inactiveTab = document.getElementById('gridPageLink');
@@ -59,6 +105,8 @@ var app= {
         activePage.className = "active";
         hiddenPage.className = "hidden";
         
+        
+        
     },
     
     openGridPage: function(){
@@ -66,7 +114,7 @@ var app= {
         
        // var deviceID = device.uuid;
         var deviceID = "b24fabf8f46a667b";
-        // all of the hiding/showing stuff
+       
        
         var activeTab = document.getElementById('gridPageLink');
         var inactiveTab = document.getElementById('camPageLink');
@@ -94,15 +142,17 @@ var app= {
             data: {dev:deviceID},
             success: function(data)
             {
+              // create the grid of images
+                
                 var rawData = data;
                 var parsed = JSON.parse(rawData);
                 var length = parsed.thumnbails.length;
-               // var value = parsed.thumnbails[0].id;
-                console.log (length);
+              
                 
                 for (var i=0; i<length; i++){
                 
                 var createListItem = document.createElement("li");
+                createListItem.setAttribute("data-ref", imageID);
                 var imageID = parsed.thumnbails[i].id;
                 var imageData = parsed.thumnbails[i].data;
                     
@@ -127,46 +177,24 @@ var app= {
                     
                 
             }
-        var gridImages = document.querySelectorAll(".thumbPic");
-        console.log(gridImages.length);
-        for (var i=0; i<gridImages.length; i++){
-            
-        var gridImageHammer = new Hammer(gridImages[i]);
-        gridImageHammer.on("tap", app.openModal);
-        }
-        
-        // listeners for the delete buttons
-        var delButtons = document.querySelectorAll(".delButton");
-        for (var i=0; i<delButtons.length; i++){
-            
-        var delButtonHammer = new Hammer(delButtons[i]);
-        delButtonHammer.on("tap", app.confirmDelete);
-        }
+
+                
+                
             }
         });
-        // listeners for the images
-        
-        
-        
-        
-//        var gridRequest = new XMLHttpRequest();
-//        gridRequest.open("GET", "list.php?dev=" + deviceID, false);
-//        gridRequest.send();
-//        var listJSON = gridRequest.responseText;
-//        console.log(gridRequest);
+      
         
         
     },
     // when you click on a thumbnail, bring up modal with big picture. If you click delete button, get confirmation.
     openModal: function(ev){
-        //ajax for full size
-        
+       
+         // if the click target is the image
         if (ev.target.hasAttribute("src")){
             document.querySelector("[data-role=overlay]").style.display="block";
             document.getElementById("fullImage").style.display="block";
              var deviceID = "b24fabf8f46a667b";
              var imageID = ev.target.getAttribute("data-ref");
-           //  var imageData = parsed.thumnbails[i].data;
             $.ajax({
             url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
             type:"GET",
@@ -174,10 +202,10 @@ var app= {
             data: {dev:deviceID, img_id:imageID},
             success: function(data)
             {
-            
+                // fill src of the modal image
                 var rawData = data;
                 var parsed = JSON.parse(rawData);
-               // console.log (parsed.data);
+              
                 
                 var bigImage = document.getElementById("bigImage");
                 bigImage.setAttribute("src", parsed.data);
@@ -213,24 +241,20 @@ var app= {
         "Delete Image",
         [ "Yes", "No"]
     );
-            
+            // delete selected photo
         function deletePhoto()
     {
-        var deviceID = device.uuid;
-        var imageID = 0;
-         // open database 
-        xmlhttp.open("GET", "db.inc.php", true);
-        xmlhttp.send(); 
-        // delete from database
-        xmlhttp.open("GET", "delete.php?dev=" + deviceID + "&img_id=" + imageID, true);
-        xmlhttp.send();
+//        var deviceID = device.uuid;
+//        var imageID = 0;
+        alert ("delete confirmed");
+       
         
     }
     
     
     }
     },
-    
+        // called when you tap anywhere on the overlay, goes back to the grid screen
     closeModal: function () {
          document.querySelector("[data-role=overlay]").style.display="none";
          document.getElementById("fullImage").style.display="none";
