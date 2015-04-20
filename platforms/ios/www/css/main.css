@@ -114,6 +114,18 @@ input {
     float: left;
     display: block;
 }
+
+
+#textbox {
+    height: 30px;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+
+
 /********************************
         TABS
 ********************************/
@@ -162,6 +174,7 @@ ul.tabs{
   position:relative;
   z-index:30;
 }
+
 
 /********************************
         PAGES

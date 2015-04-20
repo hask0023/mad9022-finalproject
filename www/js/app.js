@@ -1,10 +1,10 @@
 // Author: Steve Haskins
-
+var img, context;
 var app= {
 	loadRequirements:0,
 	init: function(){
         // comment this back in to test on emulator
-		document.addEventListener("deviceready", app.onDeviceReady);
+//		document.addEventListener("deviceready", app.onDeviceReady);
 		document.addEventListener("DOMContentLoaded", app.onDomReady);
 	},
 	onDeviceReady: function(){
@@ -15,11 +15,20 @@ var app= {
 	},
 	onDomReady: function(){
 		app.loadRequirements++;
-		if(app.loadRequirements === 2){ // change this back to 2 when using emulator
+		if(app.loadRequirements === 1){ // change this back to 2 when using emulator
 			app.start();
 		}
 	},
 	start: function(){
+        
+        // override form submit, so "go" button on keyboard adds text just like set text button
+        
+       $('#captionForm').submit(function(ev) {
+           ev.preventDefault();
+           app.insertCaption();
+           $('#textbox').blur();
+       });
+        
 	     //alert ("In start function");  
             app.openGridPage();
     // listeners for the nav menu    
@@ -43,6 +52,18 @@ var app= {
        var overlay = document.querySelector("[data-role=overlay]");
         var overlayHammer = new Hammer(overlay);
         overlayHammer.on("tap", app.closeModal);
+        
+        // listener for text button
+        
+        var textbox = document.getElementById('changeText');
+        var textboxHammer = new Hammer(textbox);
+        textboxHammer.on("tap", app.insertCaption);
+        
+        // listener for save button
+        var saveButton = document.getElementById('saveButton');
+        var saveButtonHammer = new Hammer(saveButton);
+        saveButtonHammer.on("tap", app.saveImages);
+        
 	},
     
     openCamPage: function(ev){
@@ -56,7 +77,7 @@ var app= {
           encodingType: Camera.EncodingType.JPEG,
           mediaType: Camera.MediaType.PICTURE,
           targetWidth: 720,
-          targetHeight: 480,
+          targetHeight: 400,
           cameraDirection: Camera.Direction.BACK,
           saveToPhotoAlbum: false,
             correctOrientation: true
@@ -75,13 +96,15 @@ function onSuccess(imageURI) {
 //    canvas.setAttribute("height", 400);
 
     var canvas = document.getElementById("canvasID");
-    var context = canvas.getContext('2d');
+    //took var out here
+     context = canvas.getContext('2d');
 
     
 //    document.body.appendChild(canvas);
 //    document.body.appendChild(outputDiv);
     
-    var img = document.createElement("img");
+    //took the var out here
+     img = document.createElement("img");
    img.onload = function() {
     context.drawImage(img, 0, 0);
   };
@@ -109,13 +132,16 @@ function onFail(message) {
         
     },
     
+// grid page starts here
+
+    
     openGridPage: function(){
         
         
        // var deviceID = device.uuid;
         var deviceID = "b24fabf8f46a667b";
        
-       
+
         var activeTab = document.getElementById('gridPageLink');
         var inactiveTab = document.getElementById('camPageLink');
         var activePage = document.getElementById('gridScreen');
@@ -136,8 +162,10 @@ function onFail(message) {
        
       //  console.log (url);
         $.ajax({
-            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/list.php",
+//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/list.php",
+            url: "http://m.edumedia.ca/hask0023/mad9022/list.php",
             type:"GET",
+            //dataType: 'text',
             dataType: 'text',
             data: {dev:deviceID},
             success: function(data)
@@ -146,15 +174,15 @@ function onFail(message) {
                 
                 var rawData = data;
                 var parsed = JSON.parse(rawData);
-                var length = parsed.thumnbails.length;
+                var length = parsed.thumbnails.length;
               
                 
                 for (var i=0; i<length; i++){
                 
                 var createListItem = document.createElement("li");
                 createListItem.setAttribute("data-ref", imageID);
-                var imageID = parsed.thumnbails[i].id;
-                var imageData = parsed.thumnbails[i].data;
+                var imageID = parsed.thumbnails[i].id;
+                var imageData = parsed.thumbnails[i].data;
                     
                 var createImage = document.createElement("img");
                 createImage.setAttribute("src", imageData);    
@@ -196,7 +224,8 @@ function onFail(message) {
              var deviceID = "b24fabf8f46a667b";
              var imageID = ev.target.getAttribute("data-ref");
             $.ajax({
-            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
+//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
+                 url: "http://m.edumedia.ca/hask0023/mad9022/get.php",
             type:"GET",
             dataType: 'text',
             data: {dev:deviceID, img_id:imageID},
@@ -246,6 +275,21 @@ function onFail(message) {
     {
 //        var deviceID = device.uuid;
 //        var imageID = 0;
+           //  var deviceID = "b24fabf8f46a667b";
+             var imageID = ev.target.getAttribute("data-ref");
+            $.ajax({
+            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/delete.php",
+            type:"GET",
+            dataType: 'text',
+            data: {dev:deviceID, img_id:imageID},
+            success: function(data)
+            {
+                // fill src of the modal image
+             console.log("Pic Deleted");
+                
+            }
+        });
+            
         alert ("delete confirmed");
        
         
@@ -259,12 +303,119 @@ function onFail(message) {
          document.querySelector("[data-role=overlay]").style.display="none";
          document.getElementById("fullImage").style.display="none";
         
+    },
+    
+    insertCaption: function (){
+
+    var topText = document.getElementById('topRadio');
+    var bottomText = document.getElementById('bottomRadio');
+    var insertText = document.getElementById('textbox').value;
+    var canvas = document.getElementById('canvasID');
+    
+    
+        if (insertText != ""){
+        
+            if(topText.checked){
+                
+           context.clearRect(0, 0, canvas.w, canvas.h );
+                
+            var w = img.width;
+            var h = img.height;
+            context.drawImage(img, 0, 0, w, h);
+                
+                var middle = canvas.width / 2;
+                var top = canvas.height - 400;
+                context.font = "30px sans-serif";
+                context.fillStyle = "red";
+                context.strokeStyle = "gold";
+                context.textAlign = "center";
+                context.fillText(insertText, middle, top);
+                context.strokeText(insertText,middle,top);
+            }
+        
+        else if (bottomText.checked) {
+                 context.clearRect(0, 0, canvas.w, canvas.h );
+                
+            var w = img.width;
+            var h = img.height;
+            context.drawImage(img, 0, 0, w, h);
+                
+                var middle = canvas.width / 2;
+                var top = canvas.height - 10;
+                context.font = "30px sans-serif";
+                context.fillStyle = "red";
+                context.strokeStyle = "gold";
+                context.textAlign = "center";
+                context.fillText(insertText, middle, top);
+                context.strokeText(insertText,middle,top);
+            
+            
+            
+            }
+            
+            }
+            
+                
+            
+        
+        },
+    
+    saveImages: function(){
+        var deviceID = device.uuid;
+        var bigImage = img.src;
+        var imgWidth = img.width;
+        var imgHeight = img.height;
+        var aspectRatio = imgWidth / imgHeight;
+       
+
+            var canvas = document.createElement('canvas'),
+            ctx = canvas.getContext('2d');
+        
+        canvas.width = width;
+        canvas.length = height;
+        
+        ctx.drawImage(img, 0, 0, 180, 100);
+        
+        var thumbnail = canvas.toDataURL();
+        
+        
+        
+         $.ajax({
+//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
+                 url: "http://m.edumedia.ca/hask0023/mad9022/save.php",
+            type:"POST",
+            dataType: 'text',
+            data: {dev:deviceID, img:bigImage, thumb:thumbnail},
+            success: function(data)
+            {
+                // fill src of the modal image
+                var rawData = data;
+                var parsed = JSON.parse(rawData);
+              
+                
+                var bigImage = document.getElementById("bigImage");
+                bigImage.setAttribute("src", parsed.data);
+                
+            }
+        });   
+            
+        
+        
+        
+       
+          
+        
     }
+      
+    
+    
+    }
+    
     
 
     
    
     
-}
+//}
 
 app.init();

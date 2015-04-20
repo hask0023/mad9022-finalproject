@@ -1,5 +1,5 @@
 // Author: Steve Haskins
-
+var img, context;
 var app= {
 	loadRequirements:0,
 	init: function(){
@@ -20,6 +20,15 @@ var app= {
 		}
 	},
 	start: function(){
+        
+        // override form submit, so "go" button on keyboard adds text just like set text button
+        
+       $('#captionForm').submit(function(ev) {
+           ev.preventDefault();
+           app.insertCaption();
+           $('#textbox').blur();
+       });
+        
 	     //alert ("In start function");  
             app.openGridPage();
     // listeners for the nav menu    
@@ -43,6 +52,13 @@ var app= {
        var overlay = document.querySelector("[data-role=overlay]");
         var overlayHammer = new Hammer(overlay);
         overlayHammer.on("tap", app.closeModal);
+        
+        // listener for text button
+        
+        var textbox = document.getElementById('changeText');
+        var textboxHammer = new Hammer(textbox);
+        textboxHammer.on("tap", app.insertCaption);
+        
 	},
     
     openCamPage: function(ev){
@@ -75,13 +91,15 @@ function onSuccess(imageURI) {
 //    canvas.setAttribute("height", 400);
 
     var canvas = document.getElementById("canvasID");
-    var context = canvas.getContext('2d');
+    //took var out here
+     context = canvas.getContext('2d');
 
     
 //    document.body.appendChild(canvas);
 //    document.body.appendChild(outputDiv);
     
-    var img = document.createElement("img");
+    //took the var out here
+     img = document.createElement("img");
    img.onload = function() {
     context.drawImage(img, 0, 0);
   };
@@ -108,6 +126,9 @@ function onFail(message) {
         
         
     },
+    
+// grid page starts here
+
     
     openGridPage: function(){
         
@@ -136,8 +157,11 @@ function onFail(message) {
        
       //  console.log (url);
         $.ajax({
-            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/list.php",
+//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/list.php",
+            url: "http://m.edumedia.ca/hask0023/mad9022/list.php",
+
             type:"GET",
+            //dataType: 'text',
             dataType: 'text',
             data: {dev:deviceID},
             success: function(data)
@@ -146,15 +170,15 @@ function onFail(message) {
                 
                 var rawData = data;
                 var parsed = JSON.parse(rawData);
-                var length = parsed.thumnbails.length;
+                var length = parsed.thumbnails.length;
               
                 
                 for (var i=0; i<length; i++){
                 
                 var createListItem = document.createElement("li");
                 createListItem.setAttribute("data-ref", imageID);
-                var imageID = parsed.thumnbails[i].id;
-                var imageData = parsed.thumnbails[i].data;
+                var imageID = parsed.thumbnails[i].id;
+                var imageData = parsed.thumbnails[i].data;
                     
                 var createImage = document.createElement("img");
                 createImage.setAttribute("src", imageData);    
@@ -196,7 +220,8 @@ function onFail(message) {
              var deviceID = "b24fabf8f46a667b";
              var imageID = ev.target.getAttribute("data-ref");
             $.ajax({
-            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
+//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
+                 url: "http://m.edumedia.ca/hask0023/mad9022/get.php",
             type:"GET",
             dataType: 'text',
             data: {dev:deviceID, img_id:imageID},
@@ -246,6 +271,21 @@ function onFail(message) {
     {
 //        var deviceID = device.uuid;
 //        var imageID = 0;
+           //  var deviceID = "b24fabf8f46a667b";
+             var imageID = ev.target.getAttribute("data-ref");
+            $.ajax({
+            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/delete.php",
+            type:"GET",
+            dataType: 'text',
+            data: {dev:deviceID, img_id:imageID},
+            success: function(data)
+            {
+                // fill src of the modal image
+             console.log("Pic Deleted");
+                
+            }
+        });
+            
         alert ("delete confirmed");
        
         
@@ -259,12 +299,70 @@ function onFail(message) {
          document.querySelector("[data-role=overlay]").style.display="none";
          document.getElementById("fullImage").style.display="none";
         
+    },
+    
+    insertCaption: function (){
+
+    var topText = document.getElementById('topRadio');
+    var bottomText = document.getElementById('bottomRadio');
+    var insertText = document.getElementById('textbox').value;
+    var canvas = document.getElementById('canvasID');
+    
+    
+        if (insertText != ""){
+        
+            if(topText.checked){
+                
+           context.clearRect(0, 0, canvas.w, canvas.h );
+                
+            var w = img.width;
+            var h = img.height;
+            context.drawImage(img, 0, 0, w, h);
+                
+                var middle = canvas.width / 2;
+                var top = canvas.height - 400;
+                context.font = "30px sans-serif";
+                context.fillStyle = "red";
+                context.strokeStyle = "gold";
+                context.textAlign = "center";
+                context.fillText(insertText, middle, top);
+                context.strokeText(insertText,middle,top);
+            }
+        
+        else if (bottomText.checked) {
+                 context.clearRect(0, 0, canvas.w, canvas.h );
+                
+            var w = img.width;
+            var h = img.height;
+            context.drawImage(img, 0, 0, w, h);
+                
+                var middle = canvas.width / 2;
+                var top = canvas.height - 10;
+                context.font = "30px sans-serif";
+                context.fillStyle = "red";
+                context.strokeStyle = "gold";
+                context.textAlign = "center";
+                context.fillText(insertText, middle, top);
+                context.strokeText(insertText,middle,top);
+            
+            
+            
+            }
+            
+            }
+            
+                
+            
+        
+        }
+        
     }
+    
     
 
     
    
     
-}
+//}
 
 app.init();

@@ -44,7 +44,7 @@ if( isset( $_GET['dev'] ) ){
     $rs = $pdo->prepare($sql);
     $ret = $rs->execute( array($dev_id) );
     if($ret){
-        echo '{"code":0, "message":"Success", "thumnbails":[';
+        echo '{"code":0, "message":"Success", "thumbnails":[';
         $imgItems = array();
         while($row = $rs->fetch()){
             $imgitem = '{"id":' . $row['img_id'] . ', "data":"'. $row['thumbnail'] .'"}';
