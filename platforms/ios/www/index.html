@@ -20,34 +20,33 @@
   <div data-role="content">
     <h1>Camera Page</h1>
       <div id ="canvasArea">
-      <canvas width="720" height="480" id="canvasID"></canvas>
+      <canvas width="720" height="400" id="canvasID"></canvas>
       
       </div>
     
      <div class ="forms">
            <div class="formBox">
           <form id = "captionForm">
-                <input type="text" id="textbox" value="" placeholder="caption for image" class=""/>
+                <input type="text" id="textbox" value="" placeholder="caption for image" maxlength="30" class=""/>
                 Top<input type="radio" id="topRadio" class = "radio" name="top" value = "top">
                 Bottom<input type="radio" id="bottomRadio" class = "radio" name="top" value = "top">
                 <input type="button" id="changeText" value="Set Text" class="delButton"/>
+            <input type="button" id = "saveButton" class="delButton" value="SAVE" />
+
           </form>
-				
+			 </div>
+       
       </div>
-			
+
+      
+      
 <!--
-      <div class="saveButton">
-				<input type="button" class="delButton" value="SAVE" />
-				
-      </div>
--->
-      
-      
       </div>
        <div class="saveButton">
 				<input type="button" id = "saveButton" class="delButton" value="SAVE" />
 				
       </div>
+-->
       
   </div>
         
@@ -76,7 +75,7 @@
 		<h2>Click anywhere on overlay to exit</h2>
 		<img id="bigImage" class="bigImage"></img>
 
-	</div>
+</div>
     
     
 <!--    navigation tabs    -->

@@ -86,7 +86,7 @@ input {
 
 .forms {
    
-  margin-left: 80%;
+  margin-left: 76%;
    
 }
 
@@ -110,10 +110,12 @@ input {
     margin: 0 auto;
 }
 
+/*
 .formBox {
     float: left;
     display: block;
 }
+*/
 
 
 #textbox {
@@ -121,7 +123,7 @@ input {
 }
 
 input {
-    margin-bottom: 15px;
+    margin-bottom: 50px;
 }
 
 

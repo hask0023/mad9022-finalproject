@@ -1,10 +1,10 @@
 // Author: Steve Haskins
-var img, context;
+var img, context, imageURI64;
 var app= {
 	loadRequirements:0,
 	init: function(){
         // comment this back in to test on emulator
-//		document.addEventListener("deviceready", app.onDeviceReady);
+		document.addEventListener("deviceready", app.onDeviceReady);
 		document.addEventListener("DOMContentLoaded", app.onDomReady);
 	},
 	onDeviceReady: function(){
@@ -15,7 +15,7 @@ var app= {
 	},
 	onDomReady: function(){
 		app.loadRequirements++;
-		if(app.loadRequirements === 1){ // change this back to 2 when using emulator
+		if(app.loadRequirements === 2){ // change this back to 2 when using emulator
 			app.start();
 		}
 	},
@@ -87,7 +87,7 @@ var app= {
         navigator.camera.getPicture(onSuccess, onFail, opts);
 
 function onSuccess(imageURI) {
-    var imageURI = imageURI;
+     imageURI64 = imageURI;
 
    // var canvas = document.createElement("canvas");
 //    var outputDiv = document.createElement("div");
@@ -108,7 +108,7 @@ function onSuccess(imageURI) {
    img.onload = function() {
     context.drawImage(img, 0, 0);
   };
-  img.src = imageURI;
+  img.src = imageURI64;
     
     
     
@@ -138,8 +138,9 @@ function onFail(message) {
     openGridPage: function(){
         
         
-       // var deviceID = device.uuid;
-        var deviceID = "b24fabf8f46a667b";
+        var deviceID = device.uuid;
+       
+       // var deviceID = "b24fabf8f46a667b";
        
 
         var activeTab = document.getElementById('gridPageLink');
@@ -221,7 +222,8 @@ function onFail(message) {
         if (ev.target.hasAttribute("src")){
             document.querySelector("[data-role=overlay]").style.display="block";
             document.getElementById("fullImage").style.display="block";
-             var deviceID = "b24fabf8f46a667b";
+            var deviceID = device.uuid;
+//             var deviceID = "b24fabf8f46a667b";
              var imageID = ev.target.getAttribute("data-ref");
             $.ajax({
 //            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
@@ -273,7 +275,7 @@ function onFail(message) {
             // delete selected photo
         function deletePhoto()
     {
-//        var deviceID = device.uuid;
+        var deviceID = device.uuid;
 //        var imageID = 0;
            //  var deviceID = "b24fabf8f46a667b";
              var imageID = ev.target.getAttribute("data-ref");
@@ -286,6 +288,7 @@ function onFail(message) {
             {
                 // fill src of the modal image
              console.log("Pic Deleted");
+                app.openGridPage();
                 
             }
         });
@@ -323,8 +326,10 @@ function onFail(message) {
             var h = img.height;
             context.drawImage(img, 0, 0, w, h);
                 
-                var middle = canvas.width / 2;
-                var top = canvas.height - 400;
+                var middle = 300;
+                var top = 100;
+//                 var middle = canvas.width / 2;
+//                var top = canvas.height - 300;
                 context.font = "30px sans-serif";
                 context.fillStyle = "red";
                 context.strokeStyle = "gold";
@@ -341,7 +346,7 @@ function onFail(message) {
             context.drawImage(img, 0, 0, w, h);
                 
                 var middle = canvas.width / 2;
-                var top = canvas.height - 10;
+                var top = canvas.height - 30;
                 context.font = "30px sans-serif";
                 context.fillStyle = "red";
                 context.strokeStyle = "gold";
@@ -362,49 +367,47 @@ function onFail(message) {
     
     saveImages: function(){
         var deviceID = device.uuid;
-        var bigImage = img.src;
+        var originalCanvas = document.getElementById('canvasID');
+        var bigImage = originalCanvas.toDataURL();
+        
+        
         var imgWidth = img.width;
         var imgHeight = img.height;
         var aspectRatio = imgWidth / imgHeight;
-       
+       alert ("hello");
 
-            var canvas = document.createElement('canvas'),
-            ctx = canvas.getContext('2d');
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
         
-        canvas.width = width;
-        canvas.length = height;
+        canvas.width = 180;
+        canvas.length = 100;
         
         ctx.drawImage(img, 0, 0, 180, 100);
         
         var thumbnail = canvas.toDataURL();
         
+//        alert(deviceID);    
+//       alert (thumbnail);
+//        alert (bigImage);
+        
         
         
          $.ajax({
-//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
-                 url: "http://m.edumedia.ca/hask0023/mad9022/save.php",
+
+            url: "http://m.edumedia.ca/hask0023/mad9022/save.php",
             type:"POST",
             dataType: 'text',
             data: {dev:deviceID, img:bigImage, thumb:thumbnail},
             success: function(data)
             {
                 // fill src of the modal image
-                var rawData = data;
-                var parsed = JSON.parse(rawData);
-              
-                
-                var bigImage = document.getElementById("bigImage");
-                bigImage.setAttribute("src", parsed.data);
+               alert ("uploaded image?");
                 
             }
         });   
             
         
-        
-        
-       
           
-        
     }
       
     
