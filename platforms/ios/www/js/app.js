@@ -106,7 +106,8 @@ function onSuccess(imageURI) {
     //took the var out here
      img = document.createElement("img");
    img.onload = function() {
-    context.drawImage(img, 0, 0);
+       // changed this
+    context.drawImage(img, 0, 0, 720, 400);
   };
   img.src = imageURI64;
     
@@ -223,10 +224,9 @@ function onFail(message) {
             document.querySelector("[data-role=overlay]").style.display="block";
             document.getElementById("fullImage").style.display="block";
             var deviceID = device.uuid;
-//             var deviceID = "b24fabf8f46a667b";
              var imageID = ev.target.getAttribute("data-ref");
             $.ajax({
-//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
+
                  url: "http://m.edumedia.ca/hask0023/mad9022/get.php",
             type:"GET",
             dataType: 'text',
@@ -308,6 +308,7 @@ function onFail(message) {
         
     },
     
+    // function to insert captions
     insertCaption: function (){
 
     var topText = document.getElementById('topRadio');
@@ -326,10 +327,10 @@ function onFail(message) {
             var h = img.height;
             context.drawImage(img, 0, 0, w, h);
                 
-                var middle = 300;
-                var top = 100;
-//                 var middle = canvas.width / 2;
-//                var top = canvas.height - 300;
+//                var middle = 300;
+//                var top = 100;
+                 var middle = canvas.width / 2;
+                var top = canvas.height - 300;
                 context.font = "30px sans-serif";
                 context.fillStyle = "red";
                 context.strokeStyle = "gold";
@@ -364,7 +365,7 @@ function onFail(message) {
             
         
         },
-    
+     // save images function
     saveImages: function(){
         var deviceID = device.uuid;
         var originalCanvas = document.getElementById('canvasID');

@@ -106,7 +106,8 @@ function onSuccess(imageURI) {
     //took the var out here
      img = document.createElement("img");
    img.onload = function() {
-    context.drawImage(img, 0, 0);
+       // changed this
+    context.drawImage(img, 0, 0, 720, 400);
   };
   img.src = imageURI64;
     
@@ -326,10 +327,10 @@ function onFail(message) {
             var h = img.height;
             context.drawImage(img, 0, 0, w, h);
                 
-                var middle = 300;
-                var top = 100;
-//                 var middle = canvas.width / 2;
-//                var top = canvas.height - 300;
+//                var middle = 300;
+//                var top = 100;
+                 var middle = canvas.width / 2;
+                var top = canvas.height - 300;
                 context.font = "30px sans-serif";
                 context.fillStyle = "red";
                 context.strokeStyle = "gold";
