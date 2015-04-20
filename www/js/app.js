@@ -223,10 +223,9 @@ function onFail(message) {
             document.querySelector("[data-role=overlay]").style.display="block";
             document.getElementById("fullImage").style.display="block";
             var deviceID = device.uuid;
-//             var deviceID = "b24fabf8f46a667b";
              var imageID = ev.target.getAttribute("data-ref");
             $.ajax({
-//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php",
+
                  url: "http://m.edumedia.ca/hask0023/mad9022/get.php",
             type:"GET",
             dataType: 'text',
@@ -308,6 +307,7 @@ function onFail(message) {
         
     },
     
+    // function to insert captions
     insertCaption: function (){
 
     var topText = document.getElementById('topRadio');
@@ -364,7 +364,7 @@ function onFail(message) {
             
         
         },
-    
+     // save images function
     saveImages: function(){
         var deviceID = device.uuid;
         var originalCanvas = document.getElementById('canvasID');
