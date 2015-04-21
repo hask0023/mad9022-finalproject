@@ -1,9 +1,10 @@
+// MAD9022 - Final Project - By: Steve Haskins, Lindsey Baker, Alicia Lemieux
 
 var img, context, imageURI64;
 var app= {
 	loadRequirements:0,
 	init: function(){
-        // comment this back in to test on emulator
+        
 		document.addEventListener("deviceready", app.onDeviceReady);
 		document.addEventListener("DOMContentLoaded", app.onDomReady);
 	},
@@ -15,7 +16,7 @@ var app= {
 	},
 	onDomReady: function(){
 		app.loadRequirements++;
-		if(app.loadRequirements === 2){ // change this back to 2 when using emulator
+		if(app.loadRequirements === 2){ 
 			app.start();
 		}
 	},
@@ -98,7 +99,7 @@ function onSuccess(imageURI) {
 
      img = document.createElement("img");
      img.onload = function() {
-       // changed this
+       
     context.drawImage(img, 0, 0, 720, 400);
   };
   img.src = imageURI64;
@@ -205,7 +206,7 @@ function onFail(message) {
         
         
     },
-    // when you click on a thumbnail, bring up modal with big picture. If you click delete button, get confirmation.
+    // when you click on a thumbnail, bring up modal with large image. If you click delete button, get confirmation.
     openModal: function(ev){
        
          // if the click target is the image
@@ -221,7 +222,7 @@ function onFail(message) {
             data: {dev:deviceID, img_id:imageID},
             success: function(data)
             {
-                // fill src of the modal image
+               
                 var rawData = data;
                 var parsed = JSON.parse(rawData);
               
@@ -229,7 +230,7 @@ function onFail(message) {
                 var bigImage = document.getElementById("bigImage");
                 bigImage.setAttribute("src", parsed.data);
                 
-             //bring up modal after image is changed    
+             //bring up modal after image has changed    
             document.querySelector("[data-role=overlay]").style.display="block";
             document.getElementById("fullImage").style.display="block";
                 
@@ -238,6 +239,7 @@ function onFail(message) {
 //            
             }
         // when they click the delete button below the thumbnail, pop up confirmation dialogue
+        
     else if (ev.target.hasAttribute("type")) {
         
         confirmDelete();
@@ -280,15 +282,13 @@ function onFail(message) {
             data: {dev:deviceID, img_id:imageID},
             success: function(data)
             {
-                // fill src of the modal image
-             
+              
+            // update interface
                 app.openGridPage();
-                
-
             }
         });
             
-        alert ("delete confirmed");
+     
        
         
     }
@@ -369,24 +369,19 @@ function onFail(message) {
         var bigImage = originalCanvas.toDataURL();
         
         
-        var imgWidth = img.width;
-        var imgHeight = img.height;
-        var aspectRatio = imgWidth / imgHeight;
       
-            var canvas = document.createElement('canvas');
-            var ctx = canvas.getContext('2d');
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
         
         canvas.width = 180;
         canvas.length = 100;
         
-        ctx.drawImage(img, 0, 0, 180, 100);
+
+        ctx.drawImage(originalCanvas, 0, 0, 180, 100);
         
         var thumbnail = canvas.toDataURL();
         
 
-        
-                
-        // save images ajax call
          $.ajax({
 
             url: "http://m.edumedia.ca/hask0023/mad9022/save.php",
@@ -409,11 +404,5 @@ function onFail(message) {
     
     }
     
-    
-
-    
-   
-    
-//}
 
 app.init();
