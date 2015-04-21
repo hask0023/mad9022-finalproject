@@ -25,7 +25,7 @@
       </div>
     
      <div class ="forms">
-           <div class="formBox">
+<!--           <div class="formBox">-->
           <form id = "captionForm">
                 <input type="text" id="textbox" value="" placeholder="caption for image" maxlength="30" class=""/>
                 Top<input type="radio" id="topRadio" class = "radio" name="top" value = "top">
@@ -34,25 +34,18 @@
             <input type="button" id = "saveButton" class="delButton" value="SAVE" />
 
           </form>
-			 </div>
+<!--			 </div>-->
        
       </div>
 
-      
-      
-<!--
-      </div>
-       <div class="saveButton">
-				<input type="button" id = "saveButton" class="delButton" value="SAVE" />
-				
-      </div>
--->
+    
       
   </div>
-        
-        
+              
 </div>
     
+     
+     
 <div data-role="page" id="gridScreen" class="active">
   <div data-role="content">
     <h1>Photos</h1>
@@ -65,20 +58,34 @@
     </div>
     
   </div>
-</div>
-
+     
+  
+<!--
+        <nav>
+<ul class="tabs">
+    <li class="tab" id="navGridId"><a href="#gridScreen" data-role="pagelink" id="gridPageLink" class="activetab">Your Photos</a></li>
+    <li class="tab" id="navCamId"><a href="#camScreen" data-role="pagelink" id="camPageLink" class="">Take Photo</a></li>
     
-<div data-role="overlay">&nbsp;</div>
+</ul>
+    </nav>
+-->
+      
+    
+<!--</div>   old spot for wrapper to end--> 
+     
+     
+     <div data-role="overlay">&nbsp;</div>
 	
 	<!-- modal for popup image -->
 	<div data-role="modal" id="fullImage">
-		<h2>Click anywhere on overlay to exit</h2>
+		<h2>Tap anywhere on the overlay to exit</h2>
 		<img id="bigImage" class="bigImage"></img>
 
 </div>
     
-    
+    </div>
 <!--    navigation tabs    -->
+
     <nav>
 <ul class="tabs">
     <li class="tab" id="navGridId"><a href="#gridScreen" data-role="pagelink" id="gridPageLink" class="activetab">Your Photos</a></li>
@@ -86,6 +93,10 @@
     
 </ul>
     </nav>
+    
+<!--</div>-->
+
+ 
     
 
     

@@ -10,6 +10,10 @@ html{
   background-color:#333;
   font-family: Calibri, Arial, Helvetica, sans-serif;
 }
+
+body{
+    height: 100%;
+}
 h1, h2, h3, p{
 	padding:0.2rem 2rem;
     
@@ -19,8 +23,10 @@ h1, h2 {
 }
 
 .wrapper {
-    min-height: 100%;
-    margin: 0 auto -3rem;
+/*    min-height: 100%;*/
+/*    margin: 0 auto -3rem;*/
+    margin: 0 auto;
+    max-height: 90%;
 }
 
 .thumbPic{
@@ -35,32 +41,7 @@ h1, h2 {
 }
 */
 
-.delButton {
-     display: inline;
-	-moz-box-shadow: 3px 3px 0px 0px #899599;
-	-webkit-box-shadow: 3px 3px 0px 0px #899599;
-	box-shadow: 3px 3px 0px 0px #899599;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
-	background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
-	background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
-	background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
-	background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
-	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
-	background-color:#ededed;
-	-moz-border-radius:15px;
-	-webkit-border-radius:15px;
-	border-radius:15px;
-	border:1px solid #d6bcd6;
-	display:inline-block;
-	cursor:pointer;
-	color:#3a8a9e;
-	font-family:arial;
-	font-size:14px;
-	padding:2px 68px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #e1e2ed;
-}
+
 
 /*this is their part, might change*/
 #canvasArea{
@@ -90,9 +71,11 @@ input {
    
 }
 
+/*
 .formBox {
   
 }
+*/
 
 #gridList {
     margin: 0 auto;
@@ -126,25 +109,40 @@ input {
     margin-bottom: 50px;
 }
 
+.wrapper{
+    overflow: scroll;
+/*    max-height: 90%;*/
+}
 
+#gridScreen {
+    margin: 0 auto -3rem;
+    max-height: 50%;
+}
 
 /********************************
         TABS
 ********************************/
+nav, .push{
+    height: 3rem;
+}
+
 
 nav{
 /*  height:3rem;*/
-    height:3rem;
+/*    height:3rem;*/
     width:100%;
-    min-height: 0%;
+   
     position: fixed;
+/*    position: static;*/
     bottom: 0;
+    display: block;
     
   
    
 }
 ul.tabs{
 	width:100%;
+/*    float: left;*/
 	/*margin-bottom:30px;*/
 }
 .tabs li.tab{
@@ -253,5 +251,33 @@ margin: 0 auto;
   height:100%;
   width:100%;
   background-color: rgba(0,0,0,0.82);
+}
+
+
+.delButton {
+     display: inline;
+	-moz-box-shadow: 3px 3px 0px 0px #899599;
+	-webkit-box-shadow: 3px 3px 0px 0px #899599;
+	box-shadow: 3px 3px 0px 0px #899599;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+	background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:1px solid #d6bcd6;
+	display:inline-block;
+	cursor:pointer;
+	color:#3a8a9e;
+	font-family:arial;
+	font-size:14px;
+	padding:2px 68px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
 }
 

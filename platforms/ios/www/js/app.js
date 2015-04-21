@@ -1,4 +1,4 @@
-// Author: Steve Haskins
+
 var img, context, imageURI64;
 var app= {
 	loadRequirements:0,
@@ -29,8 +29,9 @@ var app= {
            $('#textbox').blur();
        });
         
-	     //alert ("In start function");  
+	      
             app.openGridPage();
+        
     // listeners for the nav menu    
         var navBarCam = document.getElementById('navCamId');
         var addNavBarCamHammer = new Hammer(navBarCam);
@@ -89,23 +90,14 @@ var app= {
 function onSuccess(imageURI) {
      imageURI64 = imageURI;
 
-   // var canvas = document.createElement("canvas");
-//    var outputDiv = document.createElement("div");
- //   outputDiv.setAttribute("id", "output");
-//    canvas.setAttribute("width", 400);
-//    canvas.setAttribute("height", 400);
+
 
     var canvas = document.getElementById("canvasID");
-    //took var out here
+    
      context = canvas.getContext('2d');
 
-    
-//    document.body.appendChild(canvas);
-//    document.body.appendChild(outputDiv);
-    
-    //took the var out here
      img = document.createElement("img");
-   img.onload = function() {
+     img.onload = function() {
        // changed this
     context.drawImage(img, 0, 0, 720, 400);
   };
@@ -138,12 +130,9 @@ function onFail(message) {
     
     openGridPage: function(){
         
-        
+       
         var deviceID = device.uuid;
-       
-       // var deviceID = "b24fabf8f46a667b";
-       
-
+        
         var activeTab = document.getElementById('gridPageLink');
         var inactiveTab = document.getElementById('camPageLink');
         var activePage = document.getElementById('gridScreen');
@@ -152,6 +141,7 @@ function onFail(message) {
         inactiveTab.className = "";
         activePage.className = "active";
         hiddenPage.className = "hidden";
+        
         
         //empty out the grid of images before building it again
         var root = document.getElementById("gridList");
@@ -164,7 +154,6 @@ function onFail(message) {
        
       //  console.log (url);
         $.ajax({
-//            url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/list.php",
             url: "http://m.edumedia.ca/hask0023/mad9022/list.php",
             type:"GET",
             //dataType: 'text',
@@ -221,8 +210,7 @@ function onFail(message) {
        
          // if the click target is the image
         if (ev.target.hasAttribute("src")){
-            document.querySelector("[data-role=overlay]").style.display="block";
-            document.getElementById("fullImage").style.display="block";
+
             var deviceID = device.uuid;
              var imageID = ev.target.getAttribute("data-ref");
             $.ajax({
@@ -241,9 +229,13 @@ function onFail(message) {
                 var bigImage = document.getElementById("bigImage");
                 bigImage.setAttribute("src", parsed.data);
                 
+             //bring up modal after image is changed    
+            document.querySelector("[data-role=overlay]").style.display="block";
+            document.getElementById("fullImage").style.display="block";
+                
             }
         });
-            
+//            
             }
         // when they click the delete button below the thumbnail, pop up confirmation dialogue
     else if (ev.target.hasAttribute("type")) {
@@ -257,14 +249,14 @@ function onFail(message) {
         function( index ) {
             switch ( index ) {
                 case 1:
-                    //the first button was pressed. Delete photo from database and interface
+                    //yes was pressed. Delete photo from database and interface
                     deletePhoto();
     
                     
                     break;
                   
                 case 2:
-                    // the second button was pressed, do nothing
+                    // no was pressed, do nothing
                     break;
             }
                 
@@ -272,13 +264,15 @@ function onFail(message) {
         "Delete Image",
         [ "Yes", "No"]
     );
+                
+                
             // delete selected photo
         function deletePhoto()
     {
-        var deviceID = device.uuid;
-//        var imageID = 0;
-           //  var deviceID = "b24fabf8f46a667b";
-             var imageID = ev.target.getAttribute("data-ref");
+        var deviceID = device.uuid;   
+        var imageID = ev.target.getAttribute("data-ref");
+        
+        
             $.ajax({
             url: "http://faculty.edumedia.ca/griffis/mad9022/final-w15/delete.php",
             type:"GET",
@@ -287,9 +281,10 @@ function onFail(message) {
             success: function(data)
             {
                 // fill src of the modal image
-             console.log("Pic Deleted");
+             
                 app.openGridPage();
                 
+
             }
         });
             
@@ -319,18 +314,19 @@ function onFail(message) {
     
         if (insertText != ""){
         
+            // top radio button clicked
             if(topText.checked){
                 
            context.clearRect(0, 0, canvas.w, canvas.h );
                 
-            var w = img.width;
-            var h = img.height;
+
+            var w = canvas.width;
+            var h = canvas.height;
             context.drawImage(img, 0, 0, w, h);
                 
-//                var middle = 300;
-//                var top = 100;
+
                  var middle = canvas.width / 2;
-                var top = canvas.height - 300;
+                var top = canvas.height - 350;
                 context.font = "30px sans-serif";
                 context.fillStyle = "red";
                 context.strokeStyle = "gold";
@@ -339,11 +335,12 @@ function onFail(message) {
                 context.strokeText(insertText,middle,top);
             }
         
+            // bottom radio button clicked
         else if (bottomText.checked) {
                  context.clearRect(0, 0, canvas.w, canvas.h );
-                
-            var w = img.width;
-            var h = img.height;
+
+            var w = canvas.width;
+            var h = canvas.height;
             context.drawImage(img, 0, 0, w, h);
                 
                 var middle = canvas.width / 2;
@@ -375,8 +372,7 @@ function onFail(message) {
         var imgWidth = img.width;
         var imgHeight = img.height;
         var aspectRatio = imgWidth / imgHeight;
-       alert ("hello");
-
+      
             var canvas = document.createElement('canvas');
             var ctx = canvas.getContext('2d');
         
@@ -387,12 +383,10 @@ function onFail(message) {
         
         var thumbnail = canvas.toDataURL();
         
-//        alert(deviceID);    
-//       alert (thumbnail);
-//        alert (bigImage);
+
         
-        
-        
+                
+        // save images ajax call
          $.ajax({
 
             url: "http://m.edumedia.ca/hask0023/mad9022/save.php",
@@ -401,8 +395,8 @@ function onFail(message) {
             data: {dev:deviceID, img:bigImage, thumb:thumbnail},
             success: function(data)
             {
-                // fill src of the modal image
-               alert ("uploaded image?");
+               
+               alert ("Image Uploaded");
                 
             }
         });   
