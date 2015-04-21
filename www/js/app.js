@@ -211,7 +211,8 @@ function onFail(message) {
        
          // if the click target is the image
         if (ev.target.hasAttribute("src")){
-
+            var bigImage = document.getElementById("bigImage");
+            bigImage.src = "img/default.png";
             var deviceID = device.uuid;
              var imageID = ev.target.getAttribute("data-ref");
             $.ajax({
@@ -227,7 +228,7 @@ function onFail(message) {
                 var parsed = JSON.parse(rawData);
               
                 
-                var bigImage = document.getElementById("bigImage");
+                
                 bigImage.setAttribute("src", parsed.data);
                 
              //bring up modal after image has changed    
